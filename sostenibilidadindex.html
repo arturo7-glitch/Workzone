@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sostenibilidad</title>
+<style>
+  :root {
+    --azul-principal: #036aff;
+    --azul-medio: #0077c8;
+    --azul-profundo: #003a5d;
+    --azul-noche: #051c2c;
+    --blanco: #ffffff;
+    --niebla: rgba(255,255,255,0.06);
+    --linea: rgba(255,255,255,0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:
+      radial-gradient(circle at 12% -10%, rgba(3,106,255,0.28), transparent 45%),
+      radial-gradient(circle at 95% 8%, rgba(0,119,200,0.18), transparent 40%),
+      var(--azul-noche);
+    color: var(--blanco);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 64px 32px 80px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--azul-principal); font-weight: 700; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(38px, 6vw, 68px); line-height: 1.02; font-weight: 800;
+    letter-spacing: -0.02em; max-width: 16ch;
+  }
+  .intro {
+    margin-top: 22px; font-size: clamp(16px, 2vw, 19px); line-height: 1.6;
+    color: rgba(255,255,255,0.74); max-width: 54ch;
+  }
+  .divider { height: 1px; background: var(--linea); margin: 56px 0 48px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    position: relative; display: flex; flex-direction: column;
+    background: var(--niebla); border: 1px solid var(--linea);
+    border-radius: 18px; padding: 32px 28px 28px;
+    text-decoration: none; color: inherit; overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0;
+    height: 4px; background: var(--accent);
+  }
+  .card:hover {
+    transform: translateY(-6px); border-color: var(--accent);
+    background: rgba(255,255,255,0.10);
+  }
+  .card:focus-visible { outline: 3px solid var(--azul-principal); outline-offset: 3px; }
+  .num {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 22px; line-height: 1.25; font-weight: 700;
+    letter-spacing: -0.01em; margin-bottom: 14px;
+  }
+  .card p {
+    font-size: 15px; line-height: 1.6;
+    color: rgba(255,255,255,0.66); flex-grow: 1;
+  }
+  .go {
+    margin-top: 26px; display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--blanco);
+  }
+  .go .arrow { transition: transform 0.25s ease; }
+  .card:hover .go .arrow { transform: translateX(5px); }
+  .c1 { --accent: var(--azul-principal); }
+  .c2 { --accent: var(--azul-medio); }
+  .c3 { --accent: var(--azul-profundo); }
+  footer { margin-top: 56px; font-size: 13px; color: rgba(255,255,255,0.4); }
+  @media (max-width: 820px) {
+    .grid { grid-template-columns: 1fr; }
+    .wrap { padding: 48px 22px 60px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Sostenibilidad</p>
+    <h1>Nuestro compromiso con el entorno</h1>
+    <p class="intro">Accede a los recursos del espacio de Sostenibilidad: documentos, próximas actividades y las últimas noticias del área.</p>
+    <div class="divider"></div>
+    <div class="grid">
+      <a class="card c1" href="#" aria-label="Ir a Documentos">
+        <span class="num">01</span>
+        <h2>Documentos</h2>
+        <p>Políticas, informes y archivos de referencia del área de Sostenibilidad.</p>
+        <span class="go">Ver documentos <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="card c2" href="#" aria-label="Ir a Calendario">
+        <span class="num">02</span>
+        <h2>Calendario</h2>
+        <p>Próximas actividades, hitos y eventos del área.</p>
+        <span class="go">Ver calendario <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="card c3" href="#" aria-label="Ir a Noticias">
+        <span class="num">03</span>
+        <h2>Noticias</h2>
+        <p>Novedades y comunicaciones recientes de Sostenibilidad.</p>
+        <span class="go">Ver noticias <span class="arrow">&rarr;</span></span>
+      </a>
+    </div>
+    <footer>Espacio de Sostenibilidad</footer>
+  </main>
+</body>
+</html>
