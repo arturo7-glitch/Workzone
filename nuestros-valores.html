@@ -37,7 +37,7 @@
   .wrap { max-width: 1140px; margin: 0 auto; padding: 64px 32px 90px; }
 
   .eyebrow {
-    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    font-size: 18px; letter-spacing: 0.28em; text-transform: uppercase;
     color: var(--azul-principal); font-weight: 700; margin-bottom: 18px;
   }
   h1 {
@@ -46,7 +46,7 @@
   }
   h1 .light { color: var(--azul-principal); }
   .intro {
-    margin-top: 22px; font-size: clamp(16px, 2vw, 19px); line-height: 1.6;
+    margin-top: 22px; font-size: clamp(19px, 2.4vw, 24px); line-height: 1.6;
     color: rgba(255,255,255,0.74); max-width: 60ch;
   }
   .hint {
@@ -58,15 +58,20 @@
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 22px;
   }
+  /* Cada tarjeta ocupa 2 columnas: 3 por fila */
+  .flip { grid-column: span 2; }
+  /* Las dos últimas se centran en la fila inferior */
+  .flip.v4 { grid-column: 2 / span 2; }
+  .flip.v5 { grid-column: 4 / span 2; }
 
   /* Tarjeta volteable */
   .flip {
     background: transparent;
     perspective: 1600px;
-    height: 340px;
+    height: 380px;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -133,18 +138,18 @@
     color: #ffffff;
   }
   .back-title {
-    font-size: 16px; font-weight: 800; color: var(--c);
+    font-size: 19px; font-weight: 800; color: var(--c);
     margin-bottom: 16px; letter-spacing: -0.01em;
     padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);
   }
   .conductas {
-    list-style: none; display: flex; flex-direction: column; gap: 11px;
+    list-style: none; display: flex; flex-direction: column; gap: 13px;
     overflow-y: auto; padding-right: 4px;
   }
   .conductas li {
-    font-size: 13.5px; line-height: 1.45;
-    color: rgba(255,255,255,0.85);
-    display: flex; gap: 9px; align-items: flex-start;
+    font-size: 16px; line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+    display: flex; gap: 10px; align-items: flex-start;
   }
   .conductas li::before {
     content: "✓"; color: var(--c); font-weight: 800; flex-shrink: 0;
@@ -161,10 +166,12 @@
   footer { margin-top: 54px; font-size: 13px; color: rgba(255,255,255,0.4); }
 
   @media (max-width: 880px) {
-    .grid { grid-template-columns: 1fr 1fr; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .flip, .flip.v4, .flip.v5 { grid-column: auto; }
   }
   @media (max-width: 580px) {
     .grid { grid-template-columns: 1fr; }
+    .flip, .flip.v4, .flip.v5 { grid-column: auto; }
     .wrap { padding: 48px 22px 64px; }
     .flip { height: 320px; }
   }
